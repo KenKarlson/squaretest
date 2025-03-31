@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+      }
+
+      .black-square {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: black;
+        z-index: 2;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .black-square:hover {
+        background: red; /* Изменение цвета при наведении */
+      }
+
+      .red-square {
+        margin: 0;
+        padding: 10px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: red;
+        transition: transform 0.3s ease;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+      .red-square.second {
+        top: 200px; /* Располагаем под первым красным квадратом */
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s; /* Задержка 0.5s */
+      }
+
+      .black-square:hover + .red-square {
+        background-color: red; /* Изменение цвета при наведении */
+        transform: translateX(-96%);
+      }
+      .img {
+        width: 180px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="black-square"></div>
+      <div class="red-square">
+        <img class="img" src="ui.jpg" alt="Изображение" sty />
+      </div>
+    </div>
+  </body>
+</html>
