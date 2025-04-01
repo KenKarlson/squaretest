@@ -20,10 +20,11 @@
         z-index: 2;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
-        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .black-square:hover {
-        background: red; /* Изменение цвета при наведении */
+        background-color: red; /* Изменение цвета при наведении */
+        transform: none;
       }
 
       .red-square {
@@ -32,25 +33,33 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background: red;
+        background: gray;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
       }
-      .red-square.second {
+      .d-square {
         margin: 0;
         padding: 10px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: gray;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
         border-top-left-radius: 0px;
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
-        top: 200px; /* Располагаем под первым красным квадратом */
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s; /* Задержка 0.5s */
       }
 
+      .black-square:hover ~ .d-square {
+        background-color: red;
+        transform: translateY(96%);
+      }
       .black-square:hover + .red-square {
-        background-color: red; /* Изменение цвета при наведении */
+        background-color: red;
         transform: translateX(-96%);
       }
+
       .img {
         width: 180px;
         border-radius: 8px;
@@ -63,7 +72,7 @@
       <div class="red-square">
         <img class="img" src="ui.jpg" alt="Изображение" sty />
       </div>
-      <div class="red-square second">
+      <div class="d-square">
         <img class="img" src="4f.jpg" alt="Изображение 2" />
       </div>
     </div>
